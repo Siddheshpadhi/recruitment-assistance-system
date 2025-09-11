@@ -1,0 +1,15 @@
+{
+  "name": "recruitment-assistance-system",
+  "version": "1.0.0",
+  "description": "recruitment assistance system",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "3.6.2"
+  }
+}
