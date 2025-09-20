@@ -61,7 +61,6 @@ candidateSchema.methods.isPasswordCorrect = async function(password) {
 
 //jwt access token
 candidateSchema.methods.generateAccessToken = async function() {
-    console.log(process.env.ACCESS_TOKEN_EXPIRY);
     const token = jwt.sign(
         {
             _id: this._id,
@@ -75,7 +74,6 @@ candidateSchema.methods.generateAccessToken = async function() {
 }
 //jwt refresh token
 candidateSchema.methods.generateRefreshToken = async function() {
-    console.log(process.env.REFRESH_TOKEN_EXPIRY);
     const token = jwt.sign(
         {
             _id: this._id

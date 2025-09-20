@@ -6,21 +6,20 @@ import { Quiz } from "./quiz.models.js";
 import { Question } from "./question.models.js";
 const assessmentSchema = new Schema(
     {
-        candidatesApplied: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: Candidate
-            }
-        ],
+        candidatesApplied: {
+            type: [Schema.Types.ObjectId],
+            ref: "candidate",
+            default: []
+        },
         jobId: {
             type: Schema.Types.ObjectId,
-            ref: Job
+            ref: "job"
         },
         answers: [
             {
                 questionId: { 
                     type: mongoose.Schema.Types.ObjectId,
-                    ref: Question,
+                    ref: "question",
                     required: true
                 },
                 

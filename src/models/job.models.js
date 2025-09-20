@@ -16,12 +16,12 @@ const jobSchema = new Schema(
         },
         recruiterId: {
             type: Schema.Types.ObjectId,
-            ref: Recruiter
+            ref: "recruiter"
         },
         candidatesApplied: [
             {
                 type: Schema.Types.ObjectId,
-                ref: Candidate
+                ref: "candidate"
             }
         ],
         assessmentId: {

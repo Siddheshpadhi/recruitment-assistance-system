@@ -66,16 +66,17 @@ The system includes an **automatic resume screening stage** to filter candidates
 
 #### 4.1 API Endpoints Structure
 
-**Authentication Routes** (`/api/v1/auth/`)
+**Authentication Routes** (`/api/v1/(candidate || recruiter)/auth/`)
 
 - `POST /register` – Candidate/Recruiter registration
 - `POST /login` – User authentication
-- `POST /logout` – Logout (secured)
-- `POST /change-password` – Change password (secured)
+- `GET /verify-email/:verificationToken` – Verify email
 - `POST /refresh-token` – Refresh JWT token
 - `POST /forgot-password` – Initiate password reset
-- `POST /reset-password/:token` – Reset password
-- `GET /verify-email/:verificationToken` – Verify email
+- `POST /reset-password/:resetPasswordToken` – Reset password
+- `POST /logout` – Logout (secured)
+- `POST /resend-verify-email` – Resend Verification Token
+- `POST /change-password` – Change password (secured)
 
 **Candidate Routes** (`/api/v1/candidates/`)
 

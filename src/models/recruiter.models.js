@@ -1,6 +1,8 @@
 import mongoose , { Schema } from "mongoose";
 import bcrypt from "bcrypt";
 import { Job } from "./job.models.js";
+import crypto from "crypto";
+import jwt from "jsonwebtoken";
 const recruiterSchema = new Schema(
     {
         name: {
@@ -23,12 +25,11 @@ const recruiterSchema = new Schema(
             type: String,
             required: [true , "Company name is required"]
         },
-        JobsPosted: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: Job
-            }
-        ],
+        JobsPosted: { 
+            type: [Schema.Types.ObjectId], 
+            ref: "job", 
+            default: []
+        },
         isEmailVerified: { //Verified Or Not
             type: Boolean,
             default: false

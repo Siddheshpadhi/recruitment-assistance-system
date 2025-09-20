@@ -62,7 +62,7 @@ const emailVerificationMailgenContent = (name , verificationUrl) => {
 const forgotPasswordMailgenContent = (name , passwordResetUrl) => {
     return {
         body: {
-            name: username,
+            name: name,
             intro: "We got a request from your account to reset password",
             action: {
                 instructions: "To reset password click on the following button",
