@@ -19,9 +19,11 @@ app.use(cors({
 
 import healthCheckRouter from "./routes/healthcheck.routes.js";
 import authRouter from "./routes/auth.routes.js";
+import recruiterRouter from "./routes/recruiter.routes.js"
 import cookieParser from "cookie-parser";
 app.use("/api/v1/healthcheck" , healthCheckRouter);
 app.use("/api/v1/auth" , authRouter);
+app.use("/api/v1/recruiter" , recruiterRouter);
 app.get("/" , (req , res) => {
     console.log("request received");
     res.send("Home Route to Recruitment");

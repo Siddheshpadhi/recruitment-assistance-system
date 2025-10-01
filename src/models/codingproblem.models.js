@@ -1,4 +1,5 @@
 import mongoose , { Schema } from "mongoose";
+import { Question } from "./question.models.js";
 
 const codingproblemSchema = new Schema(
     {
@@ -19,6 +20,11 @@ const codingproblemSchema = new Schema(
             },
             output: {
                 type: String
+            },
+            hidden: {
+                type: Boolean,
+                required: true,
+                default: false
             }
         },
         Constraints: {
@@ -34,4 +40,4 @@ const codingproblemSchema = new Schema(
     }
 )
 
-export const CodingProblem = mongoose.model("problem" , codingproblemSchema);
+export const CodingProblem = Question.discriminator("coding" , codingproblemSchema);

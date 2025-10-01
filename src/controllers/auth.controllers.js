@@ -60,7 +60,7 @@ const registerCandidate = wrapAsync(async (req , res) => {
             subject: "Please verify your email",
             mailgenContent: emailVerificationMailgenContent(
                 candidate.name,
-                `${req.protocol}://${req.get("host")}/api/v1/candidate/verify-email/${unHashedToken}`,
+                `${req.protocol}://${req.get("host")}/api/v1/auth/candidate/verify-email/${unHashedToken}`,
             )
         }
     );
@@ -203,7 +203,7 @@ const resendVerificationEmail = wrapAsync(async (req , res) => {
         subject: "Please Verify Your Email",
         mailgenContent: emailVerificationMailgenContent(
             candidate.name,
-            `${req.protocol}://${req.get("host")}/api/v1/candidate/verify-email/${unHashedToken}`
+            `${req.protocol}://${req.get("host")}/api/v1/auth/candidate/verify-email/${unHashedToken}`
         )
     });
     const loggedInCandidate = await Candidate.findById(candidate._id).select(
@@ -274,7 +274,7 @@ const forgotPasswordRequest = wrapAsync(async (req , res) => {
         subject: "Reset Password for Account",
         mailgenContent: forgotPasswordMailgenContent(
             candidate?.name,
-            `${req.protocol}://${req.get("host")}/api/v1/candidate/reset-password/${unHashedToken}`
+            `${req.protocol}://${req.get("host")}/api/v1/auth/candidate/reset-password/${unHashedToken}`
         )
     });
     
@@ -368,7 +368,7 @@ const registerRecruiter = wrapAsync(async (req , res) => {
             subject: "Please verify your email",
             mailgenContent: emailVerificationMailgenContent(
                 recruiter.name,
-                `${req.protocol}://${req.get("host")}/api/v1/recruiter/verify-email/${unHashedToken}`,
+                `${req.protocol}://${req.get("host")}/api/v1/auth/recruiter/verify-email/${unHashedToken}`,
             )
         }
     );
@@ -511,7 +511,7 @@ const resendVerificationEmailForRecruiter = wrapAsync(async (req , res) => {
         subject: "Please Verify Your Email",
         mailgenContent: emailVerificationMailgenContent(
             recruiter.name,
-            `${req.protocol}://${req.get("host")}/api/v1/recruiter/verify-email/${unHashedToken}`
+            `${req.protocol}://${req.get("host")}/api/v1/auth/recruiter/verify-email/${unHashedToken}`
         )
     });
     const loggedInRecruiter = await Recruiter.findById(recruiter._id).select(
@@ -582,7 +582,7 @@ const forgotPasswordRequestForRecruiter = wrapAsync(async (req , res) => {
         subject: "Reset Password for Account",
         mailgenContent: forgotPasswordMailgenContent(
             recruiter?.name,
-            `${req.protocol}://${req.get("host")}/api/v1/recruiter/reset-password/${unHashedToken}`
+            `${req.protocol}://${req.get("host")}/api/v1/auth/recruiter/reset-password/${unHashedToken}`
         )
     });
     

@@ -1,7 +1,4 @@
 import mongoose , {Schema} from "mongoose";
-import { Recruiter } from "./recruiter.models.js";
-import { Candidate } from "./candidate.models.js";
-import { Assessment } from "./assessment.models.js";
 
 const jobSchema = new Schema(
     {
@@ -16,18 +13,22 @@ const jobSchema = new Schema(
         },
         recruiterId: {
             type: Schema.Types.ObjectId,
-            ref: "recruiter"
+            ref: "recruiter",
+            required: true
         },
-        candidatesApplied: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: "candidate"
-            }
-        ],
-        assessmentId: {
-            type: Schema.Types.ObjectId,
-            ref: Assessment
+        candidatesApplied: {
+                type: [Schema.Types.ObjectId],
+                ref: "candidate",
+                default: []
         },
+        selectedQuestions: {
+            type: [Schema.Types.ObjectId],
+            ref: "Question"
+        },
+        tags: {
+            type: [String],
+            required: true
+        }
         
     }, {
         timestamps: true

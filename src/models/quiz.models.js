@@ -1,11 +1,8 @@
 import mongoose , {Schema} from "mongoose";
+import { Question } from "./question.models.js";
 
 const quizSchema = new Schema(
     {
-        question: {
-            type: String,
-            required: true,
-        },
         options: {
             type: [String],
             validate: {
@@ -16,12 +13,12 @@ const quizSchema = new Schema(
             },
             required: true
         },
-        answer: {
+        correctAnswer: {
             type: String,
             required: true,
             validate: {
                 validator: function(value) {
-                    return this.options.includes(v);
+                    return this.options.includes(value);
                 },
                 message: props => `Answer ${props.value} must have one of the provided options`
             } 
@@ -29,4 +26,4 @@ const quizSchema = new Schema(
     }
 );
 
-export const Quiz = mongoose.model("quiz" , quizSchema);
+export const Quiz = Question.discriminator("quiz" , quizSchema);

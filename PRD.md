@@ -78,26 +78,34 @@ The system includes an **automatic resume screening stage** to filter candidates
 - `POST /resend-verify-email` – Resend Verification Token
 - `POST /change-password` – Change password (secured)
 
-**Candidate Routes** (`/api/v1/candidates/`)
+**Candidate Routes** (`/api/v1/candidate/`)
 
 - `POST /profile` – Create candidate profile
-- `PUT /profile` – Update candidate profile
+- `PUT /profile/:candidateId` – Update candidate profile
+- `GET /jobs/` – see all jobs
+- `GET /jobs/:jobId` – see specific jobs
 - `POST /apply/:jobId` – Apply to job
 - `POST /resume-screen/:jobId` – Trigger resume screening
-- `POST /tests/aptitude` – Submit aptitude result
-- `POST /tests/coding` – Submit coding result
+- `POST /assessment/:assessmentToken` – Eligibility Check
+- `POST /assessment/aptitude` – Submit aptitude result
+- `POST /assessment/coding` – Submit coding result
 - `POST /tests/cs-quiz` – Submit CS quiz result
 - `GET /score/:jobId` – Get performance score
 
-**Recruiter Routes** (`/api/v1/recruiters/`)
+**Recruiter Routes** (`/api/v1/recruiter/`)
 
 - `POST /profile` – Create recruiter profile
-- `POST /jobs` – Post a new job
+- `POST /profile/:recruiterId` – Update recruiter profile
 - `GET /jobs` – List posted jobs
-- `GET /jobs/:jobId/applications` – View job applications
+- `POST /jobs` – Post a new job
+- `POST /jobs/:jobId` – update Job Posting
+- `DELETE /jobs/:jobId` – delete Job Posting
+- `GET /jobs/:jobId/questions` – get questions to be added
+- `GET /jobs/:jobId/questions/:questionId` – see question
+- `POST /jobs/:jobId/questions` – add questions
+- `POST /jobs/:jobId/assessment` – start the assessment
 - `GET /jobs/:jobId/leaderboard` – View candidate leaderboard
-- `POST /jobs/:jobId/contact/:candidateId` – Contact candidate
-- `POST /jobs/:jobId/ignore/:candidateId` – Ignore candidate
+- `POST /jobs/:jobId/:candidateId` – Contact candidate
 
 ---
 
@@ -109,7 +117,7 @@ The system includes an **automatic resume screening stage** to filter candidates
 | Create Profile          | ✓         | ✓         |
 | Post Jobs               | ✓         | ✗         |
 | Apply for Job           | ✗         | ✓         |
-| Resume Screening Access | ✗         | ✓ (auto)  |
+| Resume Screening Access | ✗         | ✗         |
 | Take Tests              | ✗         | ✓         |
 | View Leaderboard        | ✓         | ✗         |
 | Contact Candidates      | ✓         | ✗         |
