@@ -158,7 +158,12 @@ const contactCandidate = wrapAsync(async (req , res) => {
 
 const startTheAssessment = wrapAsync(async (req , res) => {
     const { jobId } = req.params;
-    const recruiter = req.recruiter;
-
-})
-export { updateRecruiter , getJobListing , postJobListing, updateJobListing , deleteJobPosting , getQuestions , addQuestions , viewLeaderboard , contactCandidate , seeQuestion};
+    const recruiter = req.recruiter;  
+    return res
+            .status(200)
+            .json(
+                new ApiResponse(200 , "Assessment Started")
+            );
+    
+});
+export { updateRecruiter , getJobListing , postJobListing, updateJobListing , deleteJobPosting , getQuestions , addQuestions , viewLeaderboard , contactCandidate , seeQuestion , startTheAssessment};

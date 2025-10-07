@@ -1,8 +1,8 @@
-import { Candidate } from "../models/candidate.models";
-import { wrapAsync } from "../utils/wrapAsync";
-import { ApiError } from "../utils/api-error";
-import { ApiResponse } from "../utils/api-response";
-import { Job } from "../models/job.models";
+import { Candidate } from "../models/candidate.models.js";
+import { wrapAsync } from "../utils/wrapAsync.js";
+import { ApiError } from "../utils/api-error.js";
+import { ApiResponse } from "../utils/api-response.js";
+import { Job } from "../models/job.models.js";
 
 
 
@@ -75,4 +75,4 @@ const applyForJob = wrapAsync(async (req , res) => {
 });
 
 
-export {updateCandidate , applyForJob};
+export {updateCandidate , getAllJobListings , getSpecificJobDetails , applyForJob};

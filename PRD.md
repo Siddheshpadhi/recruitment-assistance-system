@@ -80,7 +80,7 @@ The system includes an **automatic resume screening stage** to filter candidates
 
 **Candidate Routes** (`/api/v1/candidate/`)
 
-- `POST /profile` – Create candidate profile
+- `GET /profile` – Get candidate profile
 - `PUT /profile/:candidateId` – Update candidate profile
 - `GET /jobs/` – see all jobs
 - `GET /jobs/:jobId` – see specific jobs
@@ -94,7 +94,7 @@ The system includes an **automatic resume screening stage** to filter candidates
 
 **Recruiter Routes** (`/api/v1/recruiter/`)
 
-- `POST /profile` – Create recruiter profile
+- `GET /profile` – Get recruiter profile
 - `POST /profile/:recruiterId` – Update recruiter profile
 - `GET /jobs` – List posted jobs
 - `POST /jobs` – Post a new job
@@ -105,7 +105,7 @@ The system includes an **automatic resume screening stage** to filter candidates
 - `POST /jobs/:jobId/questions` – add questions
 - `POST /jobs/:jobId/assessment` – start the assessment
 - `GET /jobs/:jobId/leaderboard` – View candidate leaderboard
-- `POST /jobs/:jobId/:candidateId` – Contact candidate
+- `GET /jobs/:jobId/:candidateId` – Contact candidate
 
 ---
 
